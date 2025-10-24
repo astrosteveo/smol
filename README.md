@@ -103,15 +103,15 @@ Use the `OMZP::` prefix for plugins, `OMZT::` for themes, and `OMZL::` for libs:
 
 ```zsh
 repos=(
-  # Oh My Zsh plugins (individual mirrors)
-  'OMZP::git'              # https://github.com/ohmyzsh/git
-  'OMZP::docker'           # https://github.com/ohmyzsh/docker
-  'OMZP::sudo'             # https://github.com/ohmyzsh/sudo
+  # Oh My Zsh plugins (from ohmyzsh/ohmyzsh monorepo)
+  'OMZP::git'              # https://github.com/ohmyzsh/ohmyzsh (plugins/git/)
+  'OMZP::docker'           # https://github.com/ohmyzsh/ohmyzsh (plugins/docker/)
+  'OMZP::sudo'             # https://github.com/ohmyzsh/ohmyzsh (plugins/sudo/)
 
-  # Oh My Zsh themes (individual mirrors)
-  'OMZT::agnoster'         # https://github.com/ohmyzsh/agnoster
+  # Oh My Zsh themes (from ohmyzsh/ohmyzsh monorepo)
+  'OMZT::agnoster'         # https://github.com/ohmyzsh/ohmyzsh (themes/agnoster.zsh-theme)
 
-  # Oh My Zsh libs (from main ohmyzsh repo)
+  # Oh My Zsh libs (from ohmyzsh/ohmyzsh monorepo)
   'OMZL::git'              # https://github.com/ohmyzsh/ohmyzsh (lib/git.zsh)
   'OMZL::clipboard'        # https://github.com/ohmyzsh/ohmyzsh (lib/clipboard.zsh)
   'OMZL::history'          # https://github.com/ohmyzsh/ohmyzsh (lib/history.zsh)
