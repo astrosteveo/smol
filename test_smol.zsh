@@ -3,7 +3,7 @@
 # Tests Oh My Zsh and Prezto plugin loading
 
 # Test configuration
-TEST_DIR="${TMPDIR:-/data/data/com.termux/files/home}/smol-test-$$"
+TEST_DIR="${TMPDIR:-/tmp}/smol-test-$$"
 ZPLUGINDIR="$TEST_DIR/plugins"
 PASSED=0
 FAILED=0
@@ -18,7 +18,7 @@ NC='\033[0m' # No Color
 setup() {
   echo "${YELLOW}Setting up test environment...${NC}"
   mkdir -p "$ZPLUGINDIR"
-  source /data/data/com.termux/files/home/workspace/smol/zsh_unplugged.zsh
+  source "${0:a:h}/zsh_unplugged.zsh"
 }
 
 # Teardown test environment

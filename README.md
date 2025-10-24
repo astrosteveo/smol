@@ -54,7 +54,12 @@ git clone https://github.com/yourusername/zsh_unplugged \
 ```zsh
 ZPLUGINDIR=${ZDOTDIR:-~/.config/zsh}/plugins
 source $ZPLUGINDIR/zsh_unplugged/zsh_unplugged.zsh
+
+# Initialize completion system (if not already done)
+autoload -Uz compinit && compinit
 ```
+
+**Note:** The completion system (`compinit`) must be initialized for plugin completions to work. If you already have `compinit` in your `.zshrc`, you can skip this step.
 
 ## Usage
 

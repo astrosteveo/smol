@@ -89,5 +89,8 @@ repos=(
 # Load all plugins
 plugin-load $repos
 
+# Initialize completion system (required for plugin completions)
+autoload -Uz compinit && compinit
+
 # Your additional Zsh configuration goes here
 # ...
