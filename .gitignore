@@ -1,0 +1,5 @@
+zsh-bench/
+test-bench/
+benchmark-results/
+benchmark-plugins/
+*.log
