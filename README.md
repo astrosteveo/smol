@@ -15,8 +15,8 @@ Based on [mattmc3/zsh_unplugged](https://github.com/mattmc3/zsh_unplugged) with 
 **Oh My Zsh is great, but heavy.** Installing the full OMZ framework means:
 - ~1000+ files you'll never use
 - Hundreds of plugins you don't need
-- Slow shell startup times
-- Megabytes of unnecessary disk usage
+- 14 MB of disk space (vs 732 KB with Pluck)
+- Unnecessary bloat for just a few plugins
 
 **Pluck fixes this.** Use any OMZ or Prezto plugin without the bloat:
 - 🍒 **Sparse checkout** - Only downloads the exact plugins you request
@@ -46,7 +46,7 @@ mkdir -p ${ZDOTDIR:-~/.config/zsh}/plugins
 
 2. Clone this repo:
 ```zsh
-git clone https://github.com/yourusername/zsh_unplugged \
+git clone https://github.com/astrosteveo/pluck \
   ${ZDOTDIR:-~/.config/zsh}/plugins/zsh_unplugged
 ```
 
@@ -136,8 +136,8 @@ repos=(
   'PZT::syntax-highlighting'
 
   # Prezto contrib modules
-  'PZTC::kubernetes'   # https://github.com/belak/prezto-contrib (modules/kubernetes)
-  'PZTC::zoxide'       # https://github.com/belak/prezto-contrib (modules/zoxide)
+  'PZTC::kubernetes'   # https://github.com/belak/prezto-contrib (kubernetes/)
+  'PZTC::zoxide'       # https://github.com/belak/prezto-contrib (zoxide/)
 )
 ```
 
@@ -185,7 +185,8 @@ Here are some popular Oh My Zsh plugins you can use:
 |-------|--------|-------------|
 | robbyrussell | `OMZT::robbyrussell` | Default Oh My Zsh theme |
 | agnoster | `OMZT::agnoster` | Popular powerline theme |
-| powerlevel10k | `OMZT::powerlevel10k` | Advanced customizable theme |
+| af-magic | `OMZT::af-magic` | Minimalist theme with git info |
+| bira | `OMZT::bira` | Two-line theme with time and git |
 
 ### Popular Oh My Zsh Libs
 
@@ -257,7 +258,7 @@ The plugin manager intelligently handles different file structures across framew
    - `OMZT::agnoster` → `ohmyzsh/ohmyzsh` (sparse checkout `themes/agnoster.zsh-theme`)
    - `OMZL::clipboard` → `ohmyzsh/ohmyzsh` (sparse checkout `lib/clipboard.zsh`)
    - `PZT::git` → `sorin-ionescu/prezto` (full clone, loads `modules/git`)
-   - `PZTC::kubernetes` → `belak/prezto-contrib` (full clone, loads `modules/kubernetes`)
+   - `PZTC::kubernetes` → `belak/prezto-contrib` (full clone, loads `kubernetes/`)
 
 3. **Cloning**:
    - Regular plugins: Clones individual repo with `--depth 1`
@@ -311,10 +312,11 @@ The plugin manager automatically adds both the plugin directory AND the `complet
 ### Multiple File Types
 
 If a plugin contains multiple file types, the priority order is:
-1. `.plugin.zsh` (highest)
-2. `.zsh-theme`
-3. `.zsh`
-4. `.sh` (lowest)
+1. `init.zsh` (highest - Prezto standard)
+2. `.plugin.zsh` (Oh My Zsh plugins)
+3. `.zsh-theme` (themes)
+4. `.zsh` (generic Zsh files)
+5. `.sh` (lowest - shell scripts)
 
 The first matching file found is sourced.
 
